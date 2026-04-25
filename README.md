@@ -80,6 +80,6 @@ Sustainable user engagement leads to stronger monetization, while excessive usag
 ---
 
 ## 📷 Dashboard Preview
-(Add your dashboard screenshot here)
+<a href = "https://github.com/iaarifpathan/sql-powerbi-churn-analysis/blob/main/dashboard.PNG"> Dashboard </a>
 
 ---
