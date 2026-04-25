@@ -26,7 +26,14 @@ rename column new_account_created_date to account_created_date;
 
 -- ******** Problem Statement ***********
 
--- Phase 1
+/*
+Phase 1: The Engagement Reality Check
+The Business Problem: We know how our users behave, but we don't know if that behavior is
+normal. Are our users actually engaged, or are they just passively scrolling compared to the rest of
+the world? 
+*/
+
+--Phase-1 Query
 select
 sm.user_id,
 sm.primary_platform,
@@ -42,7 +49,15 @@ end as performance_status
 from platform_statistics_2026 ps
 join social_media_user_behavior sm on ps.platform = sm.primary_platform;
 
--- phase 2
+
+/*
+Phase 2: The Addiction-Commerce Nexus (Monetization)
+The Business Problem: Companies care about money. Which platforms have the highest global
+"Social Commerce Adoption," and are those same platforms causing the highest "Addiction
+Levels" in our specific users?
+*/
+
+-- Phase-2 Query
 select
 sm.primary_platform,
 ps.social_commerce_adoption_pct,
@@ -53,7 +68,14 @@ join social_media_user_behavior sm on ps.platform = sm.primary_platform
 group by sm.primary_platform, ps.social_commerce_adoption_pct
 order by avg_monthly_spending desc;
 
--- Phase-3
+/*
+Phase 3: The Productivity Drain (Human Cost)
+The Business Problem: High screen time equals high ad revenue, but what is the cost? Do
+platforms with higher global daily time averages cause worse productivity and sleep loss in our
+users?
+*/
+
+-- Phase-3 Query
 select
 sm.primary_platform,
 sm.productivity_impact,
@@ -67,7 +89,13 @@ group by sm.primary_platform, sm.productivity_impact,global_avg_screen_time
 order by sm.primary_platform asc, user_count desc;
 
 
--- Phase-4
+/*
+Phase 4: The "Burnout" Churn Risk (Predictive Value)
+The Business Problem: Users who spend a lot of money but report "Negative" mental health are a
+massive churn risk. They will eventually delete the app. Who are they, and what platforms do they use?
+*/
+
+-- Phase-4 Query
 select
 user_id,
 primary_platform,
@@ -80,6 +108,7 @@ when monthly_social_spending_usd<=15 and self_reported_mental_health_effect in('
 else 'Neutral'
 end as user_risk_category
 from social_media_user_behavior;
+
 
 -- Create a Master View table using Phase-1 and Phase-4
 CREATE VIEW view_social_media_fact AS
