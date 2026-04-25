@@ -31,6 +31,8 @@ Social media platforms prioritize maximum engagement, assuming it directly incre
 - Improved query performance and enabled seamless BI integration
 
 <a href = "https://github.com/iaarifpathan/sql-powerbi-churn-analysis/blob/main/social_media_user_behavior.sql"> SQL_QUERIES </a>
+
+
 ---
 
 ## 📈 Business Intelligence (Power BI)
